@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tugas Bootstrap Bagian 2</title>
+  <!-- TODO 1: Tambahkan Bootstrap CSS melalui CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-dark text-white">
+  <!-- TODO 2: Buat navbar responsif dengan minimal 4 menu -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-warning sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-dark" href="#">Portal Mahasiswa</a>
+      <button class="navbar-toggler border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuUtama"
+        aria-controls="menuUtama" aria-expanded="false" aria-label="Buka navigasi">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuUtama">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-dark fw-semibold active" href="#beranda">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#kegiatan">Kegiatan</a></li>
+          <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#jadwal">Jadwal</a></li>
+          <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#daftar">Daftar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TODO 3: Buat Hero menggunakan utility class Bootstrap -->
+  <!-- Tambahkan tombol yang membuka modal -->
+  <header id="beranda" class="py-5 bg-dark border-bottom border-warning">
+    <div class="container py-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="badge bg-warning text-dark px-3 py-2 fs-6 mb-3 fw-bold">Bootstrap Bagian 2</span>
+          <h1 class="display-5 fw-bold text-white mb-3">Portal Kegiatan Mahasiswa</h1>
+          <p class="lead text-light mb-4">
+            Contoh halaman terintegrasi menggunakan komponen Navbar, Carousel, Card, Table, Accordion, Modal, dan Form Bootstrap.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#kegiatan" class="btn btn-warning text-dark fw-bold px-4 py-2">
+              Lihat Kegiatan
+            </a>
+            <button type="button" class="btn btn-outline-warning fw-semibold px-4 py-2" data-bs-toggle="modal" data-bs-target="#modalPetunjuk">
+              Info Workshop
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card bg-white text-dark p-3 shadow-sm rounded-3">
+            <h5 class="fw-bold mb-3">Ringkasan</h5>
+            <div class="d-flex justify-content-between py-2 border-bottom">
+              <span>Kegiatan aktif</span>
+              <span class="fw-bold">3</span>
+            </div>
+            <div class="d-flex justify-content-between py-2 border-bottom">
+              <span>Peserta</span>
+              <span class="fw-bold">120+</span>
+            </div>
+            <div class="d-flex justify-content-between py-2">
+              <span>Pendaftaran</span>
+              <span class="badge bg-success">Dibuka</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="carousel">
+      <!-- TODO 4: Buat carousel minimal 3 slide -->
+      <div class="container py-5">
+        <div id="carouselKegiatan" class="carousel slide shadow-sm" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselKegiatan" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselKegiatan" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselKegiatan" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner rounded">
+            <div class="carousel-item active">
+              <div class="d-flex align-items-center justify-content-center bg-primary text-white" style="height:300px">
+                <div class="text-center">
+                  <h2>Workshop Web</h2>
+                  <p class="mb-0">Belajar antarmuka responsif.</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex align-items-center justify-content-center bg-success text-white" style="height:300px">
+                <div class="text-center">
+                  <h2>Seminar Teknologi</h2>
+                  <p class="mb-0">Berbagi tren teknologi terbaru.</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex align-items-center justify-content-center bg-warning text-dark" style="height:300px">
+                <div class="text-center">
+                  <h2>Kompetisi Mahasiswa</h2>
+                  <p class="mb-0">Tunjukkan karya terbaikmu.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselKegiatan" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Sebelumnya</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselKegiatan" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Berikutnya</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="kegiatan" class="py-5">
+      <!-- TODO 5: Buat minimal 3 card dalam grid responsif -->
+      <div class="container">
+        <div class="d-flex flex-column align-items-center mb-4 text-center">
+          <span class="badge bg-warning text-dark mb-2">KEGIATAN</span>
+          <h4 class="text-white fw-bold">Pilihan Kegiatan</h4>
+          <p class="text-secondary small mb-0">Pilih kegiatan yang ingin diikuti</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div><span class="badge bg-primary">Workshop</span></div>
+                <h5 class="card-title mt-2 fw-bold text-dark">Responsive Web</h5>
+                <p class="card-text text-secondary flex-grow-1">
+                  Membuat antarmuka responsif dengan Bootstrap.
+                </p>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalPetunjuk">
+                  Detail
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div><span class="badge bg-success">Seminar</span></div>
+                <h5 class="card-title mt-2 fw-bold text-dark">AI untuk Mahasiswa</h5>
+                <p class="card-text text-secondary flex-grow-1">
+                  Mengenal penggunaan AI secara produktif dan bertanggung jawab.
+                </p>
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalPetunjuk">
+                  Detail
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div><span class="badge bg-warning text-dark">Kompetisi</span></div>
+                <h5 class="card-title mt-2 fw-bold text-dark">Web Design Challenge</h5>
+                <p class="card-text text-secondary flex-grow-1">
+                  Membangun halaman web kreatif dalam waktu terbatas.
+                </p>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalPetunjuk">
+                  Detail
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="jadwal">
+      <!-- TODO 6: Buat table-responsive dengan minimal 3 baris data -->
+      <div class="container my-5 border-top border-warning pt-4">
+        <h2 class="h4 mb-3 text-white">Jadwal Kegiatan</h2>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0 rounded-3 overflow-hidden">
+            <thead class="table-dark">
+              <tr>
+                <th>Kegiatan</th>
+                <th>Tanggal</th>
+                <th>Lokasi</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Responsive Web</td>
+                <td>10 Oktober 2026</td>
+                <td>Lab Web</td>
+                <td><span class="badge bg-success">Dibuka</span></td>
+              </tr>
+              <tr>
+                <td>AI untuk Mahasiswa</td>
+                <td>17 Oktober 2026</td>
+                <td>Teater</td>
+                <td><span class="badge bg-success">Dibuka</span></td>
+              </tr>
+              <tr>
+                <td>Web Design Challenge</td>
+                <td>24 Oktober 2026</td>
+                <td>Lab Multimedia</td>
+                <td><span class="badge bg-secondary">Segera</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-daftar">
+      <div class="container py-5 border-top border-warning">
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h2 class="h4 mb-3 text-white">Pertanyaan Umum</h2>
+            <!-- TODO 7: Buat accordion minimal 3 pertanyaan -->
+            <div class="accordion mb-4" id="faqWorkshop">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                    Apakah kegiatan ini gratis?
+                  </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqWorkshop">
+                  <div class="accordion-body">
+                    Seluruh rangkaian kegiatan praktikum dan workshop ini diselenggarakan secara gratis untuk seluruh mahasiswa aktif.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                    Apakah peserta akan mendapatkan sertifikat?
+                  </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqWorkshop">
+                  <div class="accordion-body">
+                    Ya, peserta yang hadir penuh dan mengumpulkan penugasan akan memperoleh e-sertifikat resmi setelah acara berakhir.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                    Bagaimana alur pendaftaran kegiatan?
+                  </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqWorkshop">
+                  <div class="accordion-body">
+                    Silakan isi formulir pendaftaran di samping dengan data diri lengkap, lalu pilih kegiatan yang ingin kamu ikuti.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6" id="daftar">
+            <!-- TODO 8: Buat form berisi nama, email, select, checkbox, dan button -->
+            <div class="card shadow-sm text-dark">
+              <div class="card-body p-4">
+                <h2 class="h4 mb-3">Form Pendaftaran Kegiatan</h2>
+                <p class="text-secondary small">
+                  Gunakan form-control, form-select, input-group, form-check, dan grid Bootstrap.
+                </p>
+
+                <form>
+                  <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                      <label for="nama" class="form-label">Nama</label>
+                      <input type="text" class="form-control" id="nama" placeholder="Nama lengkap" required>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="nrp" class="form-label">NRP</label>
+                      <input type="text" class="form-control" id="nrp" placeholder="3125xxxxxx" required>
+                    </div>
+                    <div class="col-12">
+                      <label for="email" class="form-label">Email</label>
+                      <div class="input-group">
+                        <span class="input-group-text">@</span>
+                        <input type="email" class="form-control" id="email" placeholder="nama@pens.ac.id" required>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="prodi" class="form-label">Program Studi</label>
+                      <select class="form-select" id="prodi" required>
+                        <option value="" selected disabled>Pilih program studi</option>
+                        <option>D3 Teknik Informatika</option>
+                        <option>D4 Teknik Informatika</option>
+                        <option>D4 Sains Data Terapan</option>
+                      </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="kategori" class="form-label">Kategori</label>
+                      <select class="form-select" id="kategori" required>
+                        <option value="" selected disabled>Pilih kegiatan</option>
+                        <option>Workshop</option>
+                        <option>Seminar</option>
+                        <option>Kompetisi</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="setuju" required>
+                        <label class="form-check-label" for="setuju">Saya menyetujui ketentuan kegiatan.</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-success">Kirim Pendaftaran</button>
+                      <button type="reset" class="btn btn-outline-secondary ms-2">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TODO 9: Buat modal informasi -->
+  <div class="modal fade" id="modalPetunjuk" tabindex="-1" aria-labelledby="modalPetunjukLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalPetunjukLabel">Info Workshop</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-dark">
+                <tr>
+                  <th>Kegiatan</th>
+                  <th>Tanggal</th>
+                  <th>Lokasi</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Responsive Web</td>
+                  <td>10 Oktober 2026</td>
+                  <td>Lab Web</td>
+                  <td><span class="badge bg-success">Dibuka</span></td>
+                </tr>
+                <tr>
+                  <td>AI untuk Mahasiswa</td>
+                  <td>17 Oktober 2026</td>
+                  <td>Teater</td>
+                  <td><span class="badge bg-success">Dibuka</span></td>
+                </tr>
+                <tr>
+                  <td>Web Design Challenge</td>
+                  <td>24 Oktober 2026</td>
+                  <td>Lab Multimedia</td>
+                  <td><span class="badge bg-secondary">Segera</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Saya Paham</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-black text-white text-center py-4 border-top border-secondary mt-5">
+    <div class="container">
+      <p class="mb-1 fw-bold">Workshop Desain Web Bagian 5</p>
+      <small class="text-secondary">Bootstrap Bagian 2 &bull; Politeknik Elektronika Negeri Surabaya</small>
+    </div>
+  </footer>
+
+  <!-- TODO 10: Tambahkan Bootstrap JavaScript Bundle melalui CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
